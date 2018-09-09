@@ -1,5 +1,6 @@
 package DocumentParser;
 
+import java.sql.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -57,6 +58,19 @@ public class Setup {
 	{
 		String[] words = input.split("([^a-zA-Z0-9']+)'*\\1*");
 		return words;
+		
+	}
+	
+	public static void ConnectToDatabase(){
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/proj1", "root", "");
+			
+		} catch(Exception e){
+			System.out.println("oops");
+			e.printStackTrace();
+		}
 		
 	}
 
