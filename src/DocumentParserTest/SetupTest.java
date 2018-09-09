@@ -2,7 +2,6 @@ package DocumentParserTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
-import java.util.ArrayList;
 
 import DocumentParser.*;
 import org.junit.jupiter.api.Test;
@@ -23,10 +22,6 @@ class SetupTest {
 //			System.out.println(s);
 //		}
 //	}
-	
-	@Test
-	void SpecialCharacterTest() {
-		ArrayList<String> result = Setup.ReadDocument(new File("Documents/Document1.txt"));
-	}
+
 
 }
