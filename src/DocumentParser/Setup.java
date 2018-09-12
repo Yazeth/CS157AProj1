@@ -34,7 +34,27 @@ public class Setup {
 	
 	public static void BuildTable(int numberOfDocuments)
 	{
-		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/proj1", "root", "");
+			
+			Statement ps = con.createStatement();
+			ps.executeUpdate("CREATE TABLE InfoTable (WORD varchar(255) NOT NULL, DF int, PRIMARY KEY (WORD) );");
+			
+			// CREATE TABLE InfoTable (WORD varchar(255) NOT NULL, DF int, PRIMARY KEY (WORD) );"
+			
+//			ps.executeUpdate();
+//			for (int i = 0; i < numberOfDocuments; i++){
+//				ps = con.prepareStatement("ALTER TABLE InfoTable ADD D" + i);
+//				ps.execute();
+//			}
+
+			
+		} catch(Exception e){
+			System.out.println("oops");
+			e.printStackTrace();
+		}
 	}
 	
 	public static File[] GetDocuments()
